@@ -1,17 +1,11 @@
 from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
 
-KV = '''
-MDScreen:
+kivy.require('2.3.0')
 
-    MDLabel:
-        text: "Hello, KivyMD!"
-        halign: "center"
-'''
-
-class MyApp(MDApp):
+class EatExperts (MDApp):
     def build(self):
         pass
 
 if __name__ == "__main__":
-    MyApp().run()
+    EatExperts().run()
