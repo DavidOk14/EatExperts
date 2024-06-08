@@ -1,0 +1,88 @@
+<LoginPage>:
+    Screen:
+        Label:
+            text: "EatExperts" # App Title
+            font_size: 32
+            color: 0, 0, 0, 1   # Set font to black to contrast the default background
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {'center_x': 0.5, 'center_y': 0.85}
+            underline: True
+
+        # Username Text Field
+        MDTextField:
+            mode: "fill"
+            text_color_focus: "black"
+            text_color_normal: "#29292a"
+            theme_bg_color: "Custom"
+            fill_color_normal: 0, 0, 0, .2
+            hint_text: "Username"
+            icon_right: 'account'
+            font_size: 20
+            size_hint_x: .85
+            pos_hint: {'center_x': 0.5, 'center_y': 0.65}
+            on_text: self.text = self.text.replace(" ", "")
+            write_tab: False
+
+        # Password Text Field
+        MDTextField:
+            id: password_field
+            mode: "fill"
+            text_color_focus: "black"
+            text_color_normal: "#29292a"
+            theme_bg_color: "Custom"
+            fill_color_normal: 0, 0, 0, .2
+            hint_text: "Password"
+            password: True
+            icon_right: 'eye-off' if password_field.password else 'eye' # Toggle per show password checkbox
+            font_size: 20
+            size_hint_x: .85
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            on_text: self.text = self.text.replace(" ", "")
+            write_tab: False
+
+        # Login Page Buttons
+        MDBoxLayout:
+            orientation: 'vertical'
+            spacing: "10dp"
+            size_hint: .8, None
+            pos_hint: {'center_x': .5, 'center_y': .375}
+            MDBoxLayout:
+                orientation: 'horizontal'
+                size_hint: 1.0, None
+                spacing: "25dp"
+                pos_hint: {'center_x': .5, 'center_y': 0.4}  # Center the MDBoxLayout
+                MDRectangleFlatButton:
+                    text: "Login"
+                    size_hint_x: .4
+                    md_bg_color: app.theme_cls.primary_color  # Filled tonal color
+                    text_color: 0, 0, 0, 1  # Text color
+                MDRectangleFlatButton:
+                    text: "Sign Up"
+                    size_hint_x: .4
+                    md_bg_color: app.theme_cls.primary_color  # Filled tonal color
+                    text_color: 0, 0, 0, 1  # Text color
+
+            # Show Password Box
+            MDBoxLayout:
+                orientation: 'horizontal'
+                size_hint: 1.0, None
+                height: "30dp"
+                pos_hint: {'center_x': .50, 'center_y': .3}
+
+                MDCheckbox:
+                    id: show_password_checkbox
+                    size_hint: None, None
+                    width: "30dp"
+                    height: "30dp"
+                    on_press:
+                        password_field.password = not password_field.password   # Toggle password to asterisks and characters
+                MDLabel:
+                    text: "[ref=Show Password]Show Password[/ref]"
+                    markup: True
+                    size_hint: 1, None
+                    height: "30dp"
+                    on_ref_press:
+                        show_password_checkbox.active = not show_password_checkbox.active  # Toggle checkbox state
+                        password_field.password = not password_field.password
+
