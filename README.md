@@ -4,21 +4,14 @@ EatExperts is a Mobile App intended for use on iOS and Android devices. The goal
 
 # Testing on Android
 
-To build a .apk file to test the Mobile App on Android from the repository, the requirements are as follows:
- - Operating on a Windows, Linux or MacOS System
- - Python installed
- - Linux based terminal such as Ubuntu
+To build a .apk file to test the Mobile App on Android from the repository
+  Open a terminal of choice in the "EatExperts/eatexperts" directory and run the following command
+  "flutter build apk --release"
 
-In the Linux based terminal running inside of the project folder without administrator privileges, run the following command:
-  "buildozer -v android debug"
-
-The .apk file will be located inside of the bin folder of the repository
+The .apk file will be located inside of the "EatExperts/eatexperts/build/app/outputs/apk/release" with the name "app-release.apk"
 
 # Testing on Windows/Linux/MacOS
 
-To test the application on Windows/Linux/MacOS, the requirements are as follows:
- - Operating on a Windows, Linux or MacOS System
- - Python installed
-
-Open any terminal window of choice inside of the project folder and run the following command:
- "python main.py"
+To test the application on Windows/Linux/MacOS
+  Open a terminal of choice in the "EatExperts/eatexperts" directory and run the following command
+  "flutter run"
