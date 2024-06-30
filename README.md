@@ -1,6 +1,6 @@
 # EatExperts  (CSCE 3615 - Group 6)
 
-test
+testing
 
 EatExperts is a Mobile App intended for use on iOS and Android devices. The goal of the app is to target those in need of a variety of food options, whether this is getting cooked meals planned throughout the week, a simple fast food option, or even meeting dietary needs, EatExperts is bound to help our consumers meet these goals.
 
