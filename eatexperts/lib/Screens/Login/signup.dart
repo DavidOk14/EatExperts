@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget 
-{
+class SignupPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignupPageState createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> 
-{
+class _SignupPageState extends State<SignupPage> {
   bool _showPassword = true;
 
   @override
-  Widget build(BuildContext context) 
-  {
+  Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+          Navigator.pushNamed(context, '/login');
+          },
+        ),
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -38,8 +43,20 @@ class _LoginPageState extends State<LoginPage>
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.account_circle),
                   ),
-                  onChanged: (value) 
-                  {
+                  onChanged: (value) {
+                    // Handle input change event
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Email',
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.mail),
+                  ),
+                  onChanged: (value) {
                     // Handle input change event
                   },
                 ),
@@ -57,18 +74,41 @@ class _LoginPageState extends State<LoginPage>
                         // Toggle Password Visibility Icon
                         _showPassword ? Icons.visibility_off : Icons.visibility,
                       ),
-                      onPressed: () 
-                      {
-                        setState(() 
-                        {
+                      onPressed: () {
+                        setState(() {
                           // Toggle Password Visibility
                           _showPassword = !_showPassword;
                         });
                       },
                     ),
                   ),
-                  onChanged: (value) 
-                  {
+                  onChanged: (value) {
+                    // Handle input change event
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextField(
+                  obscureText: _showPassword,
+                  decoration: InputDecoration(
+                    hintText: 'Confirm Password',
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.lock),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        // Toggle Password Visibility Icon
+                        _showPassword ? Icons.visibility_off : Icons.visibility,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          // Toggle Password Visibility
+                          _showPassword = !_showPassword;
+                        });
+                      },
+                    ),
+                  ),
+                  onChanged: (value) {
                     // Handle input change event
                   },
                 ),
@@ -78,20 +118,12 @@ class _LoginPageState extends State<LoginPage>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    ElevatedButton(
-                      onPressed: () 
-                      {
-                        // Handle login
-                      },
-                      child: Text('Login'),
-                    ),
                     SizedBox(width: 20),
                     ElevatedButton(
-                      onPressed: () 
-                      {
-                      Navigator.pushNamed(context, '/signup');
+                      onPressed: () {
+                        // Handle sign up
                       },
-                      child: Text('Sign Up'),
+                      child: Text('Create Account'),
                     ),
                   ],
                 ),
@@ -101,14 +133,20 @@ class _LoginPageState extends State<LoginPage>
                 children: <Widget>[
                   Checkbox(
                     value: !_showPassword,
-                    onChanged: (bool? value) 
-                    {
+                    onChanged: (bool? value) {
                       setState(() {
                         _showPassword = !value!;
                       });
                     },
                   ),
-                  Text('Show Password'),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _showPassword = !_showPassword;
+                      });
+                    },
+                    child: Text('Show Password'),
+                  )
                 ],
               ),
             ],
