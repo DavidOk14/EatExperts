@@ -9,11 +9,17 @@ import 'package:flutter/material.dart';
 import 'package:window_size/window_size.dart';
 import 'dart:io' show Platform;
 
+// Firebase
+import 'package:firebase_core/firebase_core.dart';
+
+
 Future<void> main() async
 {
     WidgetsFlutterBinding.ensureInitialized();
-
     setDesktopWindowSize();
+
+    //await Firebase.initializeApp();
+
 
     runApp(EatExperts());
 }
