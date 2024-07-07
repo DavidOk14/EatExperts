@@ -15,7 +15,7 @@ class _SignupPageState extends State<SignupPage> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-          Navigator.pushNamed(context, '/login');
+            Navigator.pushNamed(context, '/login');
           },
         ),
       ),
@@ -121,7 +121,8 @@ class _SignupPageState extends State<SignupPage> {
                     SizedBox(width: 20),
                     ElevatedButton(
                       onPressed: () {
-                        // Handle sign up
+                        // Handle sign up and navigate to preferences
+                        Navigator.pushNamed(context, '/preferences');
                       },
                       child: Text('Create Account'),
                     ),
