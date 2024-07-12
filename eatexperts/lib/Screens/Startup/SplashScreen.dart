@@ -9,24 +9,24 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
     super.initState();
     Timer(Duration(seconds: 3), () {
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => LocationAccessScreen(),
-        ));
-      }
-    );
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => LocationAccessScreen(),
+      ));
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Image.asset("assets/EatExperts Icon.png", scale: 2,),
-      )
-    );
+        body: Center(
+      child: Image.asset(
+        "assets/EatExperts Icon.png",
+        scale: 2,
+      ),
+    ));
   }
 }
