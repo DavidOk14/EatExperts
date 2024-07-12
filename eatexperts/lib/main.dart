@@ -3,7 +3,9 @@ import 'package:eatexperts/Screens/Login/signup.dart';
 import 'package:eatexperts/Screens/Login/login.dart';
 import 'package:eatexperts/Screens/Startup/SplashScreen.dart';
 import 'package:eatexperts/Screens/Preferences/preferences.dart';
-import 'package:eatexperts/Screens/Home/home.dart'; // Add import for Home Page
+import 'package:eatexperts/Screens/Home/home.dart';
+import 'package:eatexperts/Screens/Settings/settings.dart';
+import 'package:eatexperts/Screens/Settings/confirm_delete.dart';
 
 // Window Management
 import 'package:flutter/foundation.dart';
@@ -40,9 +42,12 @@ class EatExperts extends StatelessWidget {
       routes: {
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignupPage(),
-        '/splashscreen': (context) => SplashScreen(),
         '/preferences': (context) => PreferencesPage(),
-        '/home': (context) => HomePage(), // Add the home route
+        '/home': (context) => HomePage(),
+        '/splashscreen': (context) => SplashScreen(),
+        '/settings': (context) => SettingsPage(),
+        '/confirmDelete': (context) => ConfirmDeletePage(),
+        // Other routes if any
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,

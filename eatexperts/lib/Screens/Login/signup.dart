@@ -121,8 +121,7 @@ class _SignupPageState extends State<SignupPage> {
                     SizedBox(width: 20),
                     ElevatedButton(
                       onPressed: () {
-                        // Handle sign up and navigate to preferences
-                        Navigator.pushNamed(context, '/preferences');
+                        Navigator.pushReplacementNamed(context, '/preferences');
                       },
                       child: Text('Create Account'),
                     ),
