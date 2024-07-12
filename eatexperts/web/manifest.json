@@ -1,6 +1,6 @@
 {
-    "name": "eatexperts",
-    "short_name": "eatexperts",
+    "name": "eat_experts",
+    "short_name": "eat_experts",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
