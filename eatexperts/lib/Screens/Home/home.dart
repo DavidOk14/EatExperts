@@ -1,15 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:eatexperts/Screens/Search/search.dart';
+import 'package:eatexperts/Screens/Cart/cart.dart';
+import 'package:eatexperts/Screens/Orders/orders.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+
+  static List<Widget> _widgetOptions = <Widget>[
+    Text('Home Page'),
+    SearchPage(),
+    CartPage(),
+    OrdersPage(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('EatExperts Home'),
+        title: Text('EatExperts'),
         actions: [
-          IconButton(
-            icon: Image.asset('assets/EElogo.png'),
-            onPressed: () {},
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset('assets/EElogo.png'),
           ),
         ],
       ),
@@ -18,49 +41,55 @@ class HomePage extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
+              child: Text('Menu'),
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
-              child: Text(
-                'Menu',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
             ),
             ListTile(
-              leading: Icon(Icons.home),
               title: Text('Home'),
               onTap: () {
-                Navigator.pushNamed(context, '/home');
+                Navigator.pop(context);
+                setState(() {
+                  _selectedIndex = 0;
+                });
               },
             ),
             ListTile(
-              leading: Icon(Icons.settings),
               title: Text('Settings'),
               onTap: () {
                 Navigator.pushNamed(context, '/settings');
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.logout),
-              title: Text('Logout'),
-              onTap: () {
-                Navigator.pushNamed(context, '/login');
               },
             ),
           ],
         ),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Hello "User", Welcome Back'),
-            // Add more widgets here
-          ],
-        ),
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list),
+            label: 'Orders',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue[800],
+        unselectedItemColor: Colors.grey,
+        onTap: _onItemTapped,
       ),
     );
   }
