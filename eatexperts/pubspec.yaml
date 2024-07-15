@@ -34,7 +34,7 @@ dependencies:
     git:
       url: https://github.com/google/flutter-desktop-embedding
       path: plugins/window_size
-  location: ^4.3.0
+  geolocator: ^7.7.0
   firebase_core: ^2.3.0
   firebase_auth: ^4.5.0
 

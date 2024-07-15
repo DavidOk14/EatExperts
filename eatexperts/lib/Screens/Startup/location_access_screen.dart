@@ -2,38 +2,38 @@ import 'dart:io';
 
 import 'package:eatexperts/Screens/Login/login.dart';
 import 'package:flutter/material.dart';
-import 'package:location/location.dart';
+import 'package:geolocator/geolocator.dart';
 
 class LocationAccessScreen extends StatelessWidget {
   const LocationAccessScreen({super.key});
 
   Future<void> requestLocationPermission(BuildContext context) async {
-    Location location = new Location();
-    
-    PermissionStatus _permissionGranted;
+    LocationPermission location;
+
 
     // Check if location services are enabled
-    final serviceEnabled = await location.serviceEnabled();
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      final serviceResult = await location.requestService();
-      if (!serviceResult) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text("Location services are required to proceed."),
-          ),
-        );
-        return;
-      }
+      // Location services are not enabled - prompt user to enable
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Location services are not enabled."),
+        ),
+      );
+      return;
     }
 
-    // Check if location permissions are granted
-    _permissionGranted = await location.hasPermission();
-    if (_permissionGranted == PermissionStatus.denied) {
-      _permissionGranted = await location.requestPermission();
-      if (_permissionGranted != PermissionStatus.granted) {
+    // Check location permissions
+    location = await Geolocator.checkPermission();
+    if (location == LocationPermission.denied) {
+      // Location permissions are denied - request permission
+      location = await Geolocator.requestPermission();
+      if (location != LocationPermission.whileInUse &&
+          location != LocationPermission.always) {
+        // Permission not granted - inform user
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text("Location permission is required to proceed."),
+            content: Text("Location permission is required."),
           ),
         );
         return;
