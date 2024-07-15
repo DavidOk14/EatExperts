@@ -28,21 +28,27 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(EatExperts());
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
+
+    runApp(EatExperts());
 }
 
-Future<void> setDesktopWindowSize() async {
-  // If running on a non-Mobile Device set size of window
-  if (!(Platform.isIOS || Platform.isAndroid || kIsWeb)) {
-    setWindowTitle("EatExperts");
-    setWindowMinSize(const Size(540, 960));
-    setWindowMaxSize(const Size(540, 960));
-  }
+Future<void> setDesktopWindowSize() async
+{
+    // If running on a non-Mobile Device set size of window
+    if(!(Platform.isIOS || Platform.isAndroid || kIsWeb))
+    {
+      setWindowTitle("EatExperts");
+      setWindowMinSize(const Size(540, 960));
+      setWindowMaxSize(const Size(540, 960));
+    }
 }
 
-class EatExperts extends StatelessWidget {
+class EatExperts extends StatelessWidget 
+{
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) 
+  {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
@@ -58,7 +64,7 @@ class EatExperts extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: SplashScreen(),
     );
   }
 }
