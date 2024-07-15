@@ -120,7 +120,7 @@ class _LoginPageState extends State<LoginPage>
                     ElevatedButton(
                       onPressed: () 
                       {
-                      Navigator.pushNamed(context, '/signup');
+                        Navigator.pushNamed(context, '/signup');
                       },
                       child: Text('Sign Up'),
                     ),
@@ -134,12 +134,22 @@ class _LoginPageState extends State<LoginPage>
                     value: !_showPassword,
                     onChanged: (bool? value) 
                     {
-                      setState(() {
+                      setState(() 
+                      {
                         _showPassword = !value!;
                       });
                     },
                   ),
-                  Text('Show Password'),
+                  GestureDetector(
+                    onTap:()
+                    {
+                      setState(() 
+                      {
+                        _showPassword = !_showPassword;
+                      });
+                    },
+                    child: Text('Show Password'),
+                  )
                 ],
               ),
             ],

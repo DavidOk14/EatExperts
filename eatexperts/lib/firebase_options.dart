@@ -44,39 +44,39 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDs-SD0EAwT9KLjczAU3E3z98zGE6-mW5A',
-    appId: '1:167893065881:android:f1e7eedad57ddcacb6d808',
-    messagingSenderId: '167893065881',
-    projectId: 'eat-experts',
-    storageBucket: 'eat-experts.appspot.com',
+    apiKey: 'AIzaSyBuWubuVdsH8RNmKM2LcNejYlGlGXpjHZk',
+    appId: '1:139251597451:android:cbd6c124b9be1ecc54548e',
+    messagingSenderId: '139251597451',
+    projectId: 'eatexperts-d4098',
+    storageBucket: 'eatexperts-d4098.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBAdY8qv_E--V5mhRURfyEv-wpV4qoUDZM',
-    appId: '1:167893065881:ios:ed69e63c1c0d5eebb6d808',
-    messagingSenderId: '167893065881',
-    projectId: 'eat-experts',
-    storageBucket: 'eat-experts.appspot.com',
-    iosClientId: '167893065881-b7clsvrdnfvllrhao2anhtbe7rk44h04.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAznZrJx5xX0m7t6a-XC3l2ShrqMfwUT9w',
+    appId: '1:139251597451:ios:f7af7ac7c79b8bf654548e',
+    messagingSenderId: '139251597451',
+    projectId: 'eatexperts-d4098',
+    storageBucket: 'eatexperts-d4098.appspot.com',
     iosBundleId: 'com.example.eatexperts',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBAdY8qv_E--V5mhRURfyEv-wpV4qoUDZM',
-    appId: '1:167893065881:ios:ed69e63c1c0d5eebb6d808',
-    messagingSenderId: '167893065881',
-    projectId: 'eat-experts',
-    storageBucket: 'eat-experts.appspot.com',
-    iosClientId: '167893065881-b7clsvrdnfvllrhao2anhtbe7rk44h04.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAznZrJx5xX0m7t6a-XC3l2ShrqMfwUT9w',
+    appId: '1:139251597451:ios:f7af7ac7c79b8bf654548e',
+    messagingSenderId: '139251597451',
+    projectId: 'eatexperts-d4098',
+    storageBucket: 'eatexperts-d4098.appspot.com',
     iosBundleId: 'com.example.eatexperts',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBpCMUl6IMxuKQGfNxrklBDFx4qpN02YjU',
-    appId: '1:167893065881:web:1eacd892ff39aa36b6d808',
-    messagingSenderId: '167893065881',
-    projectId: 'eat-experts',
-    authDomain: 'eat-experts.firebaseapp.com',
-    storageBucket: 'eat-experts.appspot.com',
+    apiKey: 'AIzaSyD3K6_4S9AqoBgAP1YgFO3iPJG_xZGlGPg',
+    appId: '1:139251597451:web:0f6412df2024a59954548e',
+    messagingSenderId: '139251597451',
+    projectId: 'eatexperts-d4098',
+    authDomain: 'eatexperts-d4098.firebaseapp.com',
+    storageBucket: 'eatexperts-d4098.appspot.com',
+    measurementId: 'G-FPSRF9DQHN',
   );
+
 }

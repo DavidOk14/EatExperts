@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 
-class SignupPage extends StatefulWidget {
+class SignupPage extends StatefulWidget 
+{
   @override
   _SignupPageState createState() => _SignupPageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
+class _SignupPageState extends State<SignupPage> 
+{
   bool _showPassword = true;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) 
+  {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () {
+        onPressed: () 
+          {
             Navigator.pushNamed(context, '/login');
-          },
+          }
         ),
       ),
       body: Center(
@@ -43,7 +47,8 @@ class _SignupPageState extends State<SignupPage> {
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.account_circle),
                   ),
-                  onChanged: (value) {
+                  onChanged: (value) 
+                  {
                     // Handle input change event
                   },
                 ),
@@ -56,7 +61,8 @@ class _SignupPageState extends State<SignupPage> {
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.mail),
                   ),
-                  onChanged: (value) {
+                  onChanged: (value) 
+                  {
                     // Handle input change event
                   },
                 ),
@@ -74,15 +80,18 @@ class _SignupPageState extends State<SignupPage> {
                         // Toggle Password Visibility Icon
                         _showPassword ? Icons.visibility_off : Icons.visibility,
                       ),
-                      onPressed: () {
-                        setState(() {
+                      onPressed: () 
+                      {
+                        setState(() 
+                        {
                           // Toggle Password Visibility
                           _showPassword = !_showPassword;
                         });
                       },
                     ),
                   ),
-                  onChanged: (value) {
+                  onChanged: (value) 
+                  {
                     // Handle input change event
                   },
                 ),
@@ -100,15 +109,18 @@ class _SignupPageState extends State<SignupPage> {
                         // Toggle Password Visibility Icon
                         _showPassword ? Icons.visibility_off : Icons.visibility,
                       ),
-                      onPressed: () {
-                        setState(() {
+                      onPressed: () 
+                      {
+                        setState(() 
+                        {
                           // Toggle Password Visibility
                           _showPassword = !_showPassword;
                         });
                       },
                     ),
                   ),
-                  onChanged: (value) {
+                  onChanged: (value) 
+                  {
                     // Handle input change event
                   },
                 ),
@@ -133,15 +145,19 @@ class _SignupPageState extends State<SignupPage> {
                 children: <Widget>[
                   Checkbox(
                     value: !_showPassword,
-                    onChanged: (bool? value) {
-                      setState(() {
+                    onChanged: (bool? value) 
+                    {
+                      setState(() 
+                      {
                         _showPassword = !value!;
                       });
                     },
                   ),
                   GestureDetector(
-                    onTap: () {
-                      setState(() {
+                    onTap:()
+                    {
+                      setState(() 
+                      {
                         _showPassword = !_showPassword;
                       });
                     },

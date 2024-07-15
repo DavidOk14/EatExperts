@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "139251597451",
+    "project_id": "eatexperts-d4098",
+    "storage_bucket": "eatexperts-d4098.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139251597451:android:398a2f49b8f09b5554548e",
+        "android_client_info": {
+          "package_name": "com.example.eat_experts"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuWubuVdsH8RNmKM2LcNejYlGlGXpjHZk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139251597451:android:cbd6c124b9be1ecc54548e",
+        "android_client_info": {
+          "package_name": "com.example.eatexperts"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuWubuVdsH8RNmKM2LcNejYlGlGXpjHZk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
