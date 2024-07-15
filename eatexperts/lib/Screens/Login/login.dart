@@ -9,9 +9,11 @@ class LoginPage extends StatefulWidget
 class _LoginPageState extends State<LoginPage> 
 {
   bool _showPassword = true;
+
+  // Textbox Information -> Firebase
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  String _statusMessage = '';
+  String _loginStatusMessage = '';
   Color _statusColor = Colors.red;
 
 // TODO: Make this test against the database
@@ -21,12 +23,12 @@ class _LoginPageState extends State<LoginPage>
 
     if (username == 'admin' && password == 'pass') {
       setState(() {
-        _statusMessage = 'Login Successful';
+        _loginStatusMessage = 'Login Successful';
         _statusColor = Colors.green;
       });
     } else {
       setState(() {
-        _statusMessage = 'Invalid username or password';
+        _loginStatusMessage = 'Invalid username or password';
         _statusColor = Colors.red;
       });
     }
@@ -100,7 +102,7 @@ class _LoginPageState extends State<LoginPage>
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  _statusMessage,
+                  _loginStatusMessage,
                   style: TextStyle(color: _statusColor, fontSize: 16),
                 ),
               ),
@@ -120,7 +122,7 @@ class _LoginPageState extends State<LoginPage>
                     ElevatedButton(
                       onPressed: () 
                       {
-                      Navigator.pushNamed(context, '/signup');
+                        Navigator.pushNamed(context, '/signup');
                       },
                       child: Text('Sign Up'),
                     ),
@@ -134,12 +136,22 @@ class _LoginPageState extends State<LoginPage>
                     value: !_showPassword,
                     onChanged: (bool? value) 
                     {
-                      setState(() {
+                      setState(() 
+                      {
                         _showPassword = !value!;
                       });
                     },
                   ),
-                  Text('Show Password'),
+                  GestureDetector(
+                    onTap:()
+                    {
+                      setState(() 
+                      {
+                        _showPassword = !_showPassword;
+                      });
+                    },
+                    child: Text('Show Password'),
+                  )
                 ],
               ),
             ],

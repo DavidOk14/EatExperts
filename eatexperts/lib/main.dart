@@ -13,30 +13,42 @@ import 'package:flutter/material.dart';
 import 'package:window_size/window_size.dart';
 import 'dart:io' show Platform;
 
-// Firebase
+// Database
 import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:firebase_database/firebase_database.dart'; // If using Realtime Database
+import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   setDesktopWindowSize();
 
-  //await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
-  runApp(EatExperts());
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
+
+    runApp(EatExperts());
 }
 
-Future<void> setDesktopWindowSize() async {
-  // If running on a non-Mobile Device set size of window
-  if (!(Platform.isIOS || Platform.isAndroid || kIsWeb)) {
-    setWindowTitle("EatExperts");
-    setWindowMinSize(const Size(540, 960));
-    setWindowMaxSize(const Size(540, 960));
-  }
+Future<void> setDesktopWindowSize() async
+{
+    // If running on a non-Mobile Device set size of window
+    if(!(Platform.isIOS || Platform.isAndroid || kIsWeb))
+    {
+      setWindowTitle("EatExperts");
+      setWindowMinSize(const Size(540, 960));
+      setWindowMaxSize(const Size(540, 960));
+    }
 }
 
-class EatExperts extends StatelessWidget {
+class EatExperts extends StatelessWidget 
+{
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) 
+  {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
@@ -53,6 +65,60 @@ class EatExperts extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: SplashScreen(),
+    );
+  }
+}
+
+class TestDatabase extends StatefulWidget {
+  @override
+  _TestDatabaseState createState() => _TestDatabaseState();
+}
+
+class _TestDatabaseState extends State<TestDatabase> {
+  // Firestore instance
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  // Realtime Database instance
+  // final DatabaseReference _database = FirebaseDatabase.instance.reference();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Test Database'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () async {
+                // For Firestore
+                await _firestore.collection('testCollection').add({
+                  'testField': 'Hello, Firestore!',
+                });
+
+                // For Realtime Database
+                // await _database.child('testNode').set('Hello, Realtime Database!');
+              },
+              child: Text('Write to Database'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                // For Firestore
+                QuerySnapshot snapshot = await _firestore.collection('testCollection').get();
+                for (var doc in snapshot.docs) {
+                  print(doc.data());
+                }
+
+                // For Realtime Database
+                // DataSnapshot snapshot = await _database.child('testNode').once();
+                // print(snapshot.value);
+              },
+              child: Text('Read from Database'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
