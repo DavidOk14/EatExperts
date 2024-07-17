@@ -30,7 +30,7 @@ if (flutterVersionName == null) {
 android {
     defaultConfig {
         applicationId "com.example.eatexperts"
-        minSdkVersion 21  // Adjust this to your minimum SDK version
+        minSdkVersion 23  // Adjust this to your minimum SDK version
         targetSdkVersion 31  // Adjust this to your target SDK version
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -40,8 +40,8 @@ android {
     ndkVersion flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
     }
 
     buildTypes {
