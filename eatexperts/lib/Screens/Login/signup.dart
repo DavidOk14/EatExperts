@@ -22,24 +22,32 @@ class _SignupPageState extends State<SignupPage>
   final TextEditingController _confirmPasswordController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   String signUpStatusMsg = " ";
-  Color _statusColor = Colors.red;
 
   // Confirm that username is valid
   bool isUsernameValid(String username)
   {
     if(username.isEmpty)
     {
+      setState(() 
+      {
       signUpStatusMsg = "Username cannot be empty!";
+      });
       return false;
     }
     else if(username.length < 3 || username.length > 20)
     {
+      setState(() 
+      {
       signUpStatusMsg = "Username must be 3-20 characters!";
+      });
       return false;
     }
     else if (!RegExp(r'^[a-zA-Z0-9._-]+$').hasMatch(username))
     {
+      setState(() 
+      {
       signUpStatusMsg = "Username characters are invalid! (a-zA-Z0-9 values accepted)";
+      });
       return false;
     }
 
@@ -51,17 +59,26 @@ class _SignupPageState extends State<SignupPage>
   {
     if(password.isEmpty)
     {
+      setState(() 
+      {
       signUpStatusMsg = "Password cannot be empty!";
+      });
       return false;
     }
     else if (password.length < 6)
     {
+      setState(() 
+      {
       signUpStatusMsg = "Password cannot be less than 6 characters!";
+      });
       return false;
     }
     else if (!RegExp(r'^[a-zA-Z0-9!@#$%^&*()-_=+]+$').hasMatch(password))
     {
+      setState(() 
+      {
       signUpStatusMsg = "Password must be alphanumeric or contain the following characters '!@#\$%^&*()-_=+'";
+      });
       return false;
     }
 
@@ -73,12 +90,18 @@ class _SignupPageState extends State<SignupPage>
   {
     if(email.isEmpty)
     {
+      setState(() 
+      {
       signUpStatusMsg = "Email cannot be empty!";
+      });
       return false;
     }
     else if(!RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$').hasMatch(email))
     {
+      setState(() 
+      {
       signUpStatusMsg = "Email format is invalid!";
+      });
       return false;
     }
 
@@ -108,11 +131,11 @@ class _SignupPageState extends State<SignupPage>
   // Function will process the validity of the data from the sign up to add into Firebase
   void processAccount() async
   {
-    if(_confirmPasswordController.text == _passwordController.text)
-    {
-      if(isPasswordValid(_passwordController.text))
-        if(isUsernameValid(_usernameController.text))
-          if(isEmailValid(_emailController.text))
+
+    if(isUsernameValid(_usernameController.text))
+      if(isEmailValid(_emailController.text))
+        if(isPasswordValid(_passwordController.text))
+          if(_confirmPasswordController.text == _passwordController.text)
           {
             try
             {
@@ -130,22 +153,39 @@ class _SignupPageState extends State<SignupPage>
               if (e.code == 'weak-password')
               {
                 print('The password provided is too weak.');
+                setState(() 
+                {
                 signUpStatusMsg = "The password provided is too weak.";
+                });
               }
               if(e.code == 'email-already-in-use')
               {
                 print('An account already exists with that email.');
+                setState(() 
+                {
                 signUpStatusMsg = "An account already exists with that email.";
+                });
               }
               else
               {
                 print('Sign Up Error: $e');
+                setState(() 
+                {
                 signUpStatusMsg = "Sign Up Error: $e";
+                });
               }
             }
           }
-    }
+        else
+        {
+          print('Passwords do not match');
+          setState(() 
+          {
+          signUpStatusMsg = "Passwords do not match";
+          });
+        }
   }
+    
 
   @override
   Widget build(BuildContext context) 
@@ -236,6 +276,7 @@ class _SignupPageState extends State<SignupPage>
                   },
                 ),
               ),
+              
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
@@ -266,6 +307,7 @@ class _SignupPageState extends State<SignupPage>
                   },
                 ),
               ),
+              
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -307,6 +349,13 @@ class _SignupPageState extends State<SignupPage>
                     child: Text('Show Password'),
                   )
                 ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  signUpStatusMsg,
+                  style: TextStyle(color: Colors.red, fontSize: 16),
+                ),
               ),
             ],
           ),
