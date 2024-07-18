@@ -29,8 +29,6 @@ class _LoginPageState extends State<LoginPage>
       // Check if the username exists in Firestore
       DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('users').doc(username).get();
 
-      if (userDoc.exists) 
-      {
         // Get the email associated with the username
         String email = userDoc['email'];
 
@@ -56,22 +54,14 @@ class _LoginPageState extends State<LoginPage>
           {
             setState(() 
             {
-              _loginStatusMessage = 'Login failed: ${e.message}';
+              _loginStatusMessage = 'Login failed : ${e.message}';
             });
           }
         }
-      } 
-      else 
-      {
-        setState(() 
-        {
-          _loginStatusMessage = 'Invalid username or password';
-        });
-      }
     } catch (e) {
       setState(() 
       {
-        _loginStatusMessage = 'Login failed: $e';
+          _loginStatusMessage = 'Invalid username or password';
       });
     }
   }

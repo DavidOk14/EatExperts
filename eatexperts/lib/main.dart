@@ -24,13 +24,9 @@ Future<void> main() async {
 
   setDesktopWindowSize();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
 
-    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
-
-    runApp(EatExperts());
+  runApp(EatExperts());
 }
 
 Future<void> setDesktopWindowSize() async
