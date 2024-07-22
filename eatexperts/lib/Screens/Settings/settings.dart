@@ -45,6 +45,13 @@ class SettingsPage extends StatelessWidget {
               Navigator.pushNamed(context, '/confirmDelete');
             },
           ),
+          ListTile(
+            title: Text('Logout'),
+            onTap: () {
+              // Handle logout functionality
+              Navigator.pushNamed(context, '/login');
+            },
+          ),
         ],
       ),
     );
