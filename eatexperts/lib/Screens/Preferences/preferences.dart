@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-class PreferencesPage extends StatefulWidget {
+class PreferencesPage extends StatefulWidget 
+{
   @override
   _PreferencesPageState createState() => _PreferencesPageState();
 }
 
-class _PreferencesPageState extends State<PreferencesPage> {
+class _PreferencesPageState extends State<PreferencesPage> 
+{
   List<String> preferences = [];
 
   @override

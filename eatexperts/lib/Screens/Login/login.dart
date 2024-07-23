@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:eatexperts/Screens/Startup/restaurantFinder.dart';
 
 class LoginPage extends StatefulWidget 
 {
@@ -16,6 +17,10 @@ class _LoginPageState extends State<LoginPage>
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   String _loginStatusMessage = '';
+
+  // Initialize RestaurantFinder
+  restaurantFinder _restaurantFinder = restaurantFinder();
+
 
 // Function to login to account using Firebase
   Future<void> _verifyLogin() async 
@@ -40,7 +45,8 @@ class _LoginPageState extends State<LoginPage>
             password: password,
           );
 
-          // Navigate to HomePage on successful login
+          // Load Restaurants and then navigate to HomePage on successful login
+          _restaurantFinder.loadNearbyRestaurants(username);
           Navigator.pushReplacementNamed(context, '/home');
         } on FirebaseAuthException catch (e) {
           if (e.code == 'wrong-password') 

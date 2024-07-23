@@ -6,6 +6,7 @@ import 'package:eatexperts/Screens/Preferences/preferences.dart';
 import 'package:eatexperts/Screens/Home/home.dart';
 import 'package:eatexperts/Screens/Settings/settings.dart';
 import 'package:eatexperts/Screens/Settings/confirm_delete.dart';
+import 'package:eatexperts/Screens/Settings/restaurantDump.dart';
 
 // Window Management
 import 'package:flutter/foundation.dart';
@@ -24,9 +25,13 @@ Future<void> main() async {
 
   setDesktopWindowSize();
 
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
-  runApp(EatExperts());
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
+
+    runApp(EatExperts());
 }
 
 Future<void> setDesktopWindowSize() async
@@ -55,6 +60,7 @@ class EatExperts extends StatelessWidget
         '/splashscreen': (context) => SplashScreen(),
         '/settings': (context) => SettingsPage(),
         '/confirmDelete': (context) => ConfirmDeletePage(),
+        '/restaurantDump': (context) => RestaurantDumpPage(),
         // Other routes if any
       },
       theme: ThemeData(

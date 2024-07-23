@@ -45,7 +45,12 @@ class SettingsPage extends StatelessWidget {
               Navigator.pushNamed(context, '/confirmDelete');
             },
           ),
-        ],
+          ListTile(
+            title: Text('View Restaurant Dump', style: TextStyle(color: Colors.green)),
+            onTap: () {
+              Navigator.pushNamed(context, '/restaurantDump');
+            },
+          ),        ],
       ),
     );
   }
