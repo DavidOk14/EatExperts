@@ -74,7 +74,13 @@ flutter:
     - assets/
     
 
-    - assets/EElogo.png
+    - assets/EElogo.png 
+    - assets/burger_ss.jpeg
+    - assets/indian.jpeg
+    - assets/desserts.jpeg
+    - assets/cc_burger.jpeg
+    - assets/butterchicken.jpeg
+    - assets/ccake.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
