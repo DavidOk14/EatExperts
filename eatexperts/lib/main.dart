@@ -6,14 +6,16 @@ import 'package:eatexperts/Screens/Preferences/preferences.dart';
 import 'package:eatexperts/Screens/Home/home.dart';
 import 'package:eatexperts/Screens/Settings/settings.dart';
 import 'package:eatexperts/Screens/Settings/confirm_delete.dart';
+import 'package:eatexperts/Screens/Settings/change_username.dart';
+import 'package:eatexperts/Screens/Settings/change_display_name.dart';
+import 'package:eatexperts/Screens/Settings/change_password.dart';
+import 'package:eatexperts/Screens/Settings/change_email.dart';
 
-// Window Management
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:window_size/window_size.dart';
 import 'dart:io' show Platform;
 
-// Firebase
 import 'package:firebase_core/firebase_core.dart';
 
 Future<void> main() async {
@@ -26,7 +28,6 @@ Future<void> main() async {
 }
 
 Future<void> setDesktopWindowSize() async {
-  // If running on a non-Mobile Device set size of window
   if (!(Platform.isIOS || Platform.isAndroid || kIsWeb)) {
     setWindowTitle("EatExperts");
     setWindowMinSize(const Size(540, 960));
@@ -47,7 +48,10 @@ class EatExperts extends StatelessWidget {
         '/splashscreen': (context) => SplashScreen(),
         '/settings': (context) => SettingsPage(),
         '/confirmDelete': (context) => ConfirmDeletePage(),
-        // Other routes if any
+        '/changeUsername': (context) => ChangeUsernamePage(),
+        '/changeDisplayName': (context) => ChangeDisplayNamePage(),
+        '/changePassword': (context) => ChangePasswordPage(),
+        '/changeEmail': (context) => ChangeEmailPage(),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,
