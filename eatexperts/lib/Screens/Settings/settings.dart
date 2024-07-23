@@ -12,31 +12,31 @@ class SettingsPage extends StatelessWidget {
           ListTile(
             title: Text('Change Username'),
             onTap: () {
-              // Navigate to change username page
+              Navigator.pushNamed(context, '/changeUsername');
             },
           ),
           ListTile(
             title: Text('Change Display Name'),
             onTap: () {
-              // Navigate to change display name page
+              Navigator.pushNamed(context, '/changeDisplayName');
             },
           ),
           ListTile(
             title: Text('Change Password'),
             onTap: () {
-              // Navigate to change password page
+              Navigator.pushNamed(context, '/changePassword');
             },
           ),
           ListTile(
             title: Text('Change Email'),
             onTap: () {
-              // Navigate to change email page
+              Navigator.pushNamed(context, '/changeEmail');
             },
           ),
           ListTile(
             title: Text('Change Food Preference'),
             onTap: () {
-              // Navigate to change food preference page
+              Navigator.pushNamed(context, '/preferences');
             },
           ),
           ListTile(
@@ -50,7 +50,15 @@ class SettingsPage extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(context, '/restaurantDump');
             },
-          ),        ],
+          ),
+          ListTile(
+            title: Text('Logout'),
+            onTap: () {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, '/login', (Route<dynamic> route) => false);
+            },
+          ),
+        ],
       ),
     );
   }

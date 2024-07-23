@@ -7,14 +7,16 @@ import 'package:eatexperts/Screens/Home/home.dart';
 import 'package:eatexperts/Screens/Settings/settings.dart';
 import 'package:eatexperts/Screens/Settings/confirm_delete.dart';
 import 'package:eatexperts/Screens/Settings/restaurantDump.dart';
+import 'package:eatexperts/Screens/Settings/change_username.dart';
+import 'package:eatexperts/Screens/Settings/change_display_name.dart';
+import 'package:eatexperts/Screens/Settings/change_password.dart';
+import 'package:eatexperts/Screens/Settings/change_email.dart';
 
-// Window Management
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:window_size/window_size.dart';
 import 'dart:io' show Platform;
 
-// Database
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:firebase_database/firebase_database.dart'; // If using Realtime Database
@@ -29,27 +31,24 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
-    runApp(EatExperts());
+  runApp(EatExperts());
 }
 
-Future<void> setDesktopWindowSize() async
-{
-    // If running on a non-Mobile Device set size of window
-    if(!(Platform.isIOS || Platform.isAndroid || kIsWeb))
-    {
-      setWindowTitle("EatExperts");
-      setWindowMinSize(const Size(540, 960));
-      setWindowMaxSize(const Size(540, 960));
-    }
+Future<void> setDesktopWindowSize() async {
+  if (!(Platform.isIOS || Platform.isAndroid || kIsWeb)) {
+    setWindowTitle("EatExperts");
+    setWindowMinSize(const Size(540, 960));
+    setWindowMaxSize(const Size(540, 960));
+  }
 }
 
-class EatExperts extends StatelessWidget 
-{
+class EatExperts extends StatelessWidget {
   @override
-  Widget build(BuildContext context) 
-  {
+  Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
@@ -61,7 +60,10 @@ class EatExperts extends StatelessWidget
         '/settings': (context) => SettingsPage(),
         '/confirmDelete': (context) => ConfirmDeletePage(),
         '/restaurantDump': (context) => RestaurantDumpPage(),
-        // Other routes if any
+        '/changeUsername': (context) => ChangeUsernamePage(),
+        '/changeDisplayName': (context) => ChangeDisplayNamePage(),
+        '/changePassword': (context) => ChangePasswordPage(),
+        '/changeEmail': (context) => ChangeEmailPage(),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -107,7 +109,8 @@ class _TestDatabaseState extends State<TestDatabase> {
             ElevatedButton(
               onPressed: () async {
                 // For Firestore
-                QuerySnapshot snapshot = await _firestore.collection('testCollection').get();
+                QuerySnapshot snapshot =
+                    await _firestore.collection('testCollection').get();
                 for (var doc in snapshot.docs) {
                   print(doc.data());
                 }
