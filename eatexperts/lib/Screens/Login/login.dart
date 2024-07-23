@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LoginPage extends StatefulWidget 
 {
@@ -9,25 +11,67 @@ class LoginPage extends StatefulWidget
 class _LoginPageState extends State<LoginPage> 
 {
   bool _showPassword = true;
+
+  // Textbox Information -> Firebase
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  String _statusMessage = '';
-  Color _statusColor = Colors.red;
+  String _loginStatusMessage = '';
 
-// TODO: Make this test against the database
-  Future<void> _testVerifyLogin() async {
+// Function to login to account using Firebase
+  Future<void> _verifyLogin() async 
+  {
+    // Username password text fields
     final username = _usernameController.text.trim();
     final password = _passwordController.text.trim();
 
-    if (username == 'admin' && password == 'pass') {
-      setState(() {
-        _statusMessage = 'Login Successful';
-        _statusColor = Colors.green;
-      });
-    } else {
-      setState(() {
-        _statusMessage = 'Invalid username or password';
-        _statusColor = Colors.red;
+    try 
+    {
+      // Check if the username exists in Firestore
+      DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('users').doc(username).get();
+
+      if (userDoc.exists) 
+      {
+        // Get the email associated with the username
+        String email = userDoc['email'];
+
+        try 
+        {
+          // Sign in with email and password
+          UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: email,
+            password: password,
+          );
+
+          // Navigate to HomePage on successful login
+          Navigator.pushReplacementNamed(context, '/home');
+        } on FirebaseAuthException catch (e) {
+          if (e.code == 'wrong-password') 
+          {
+            setState(() 
+            {
+              _loginStatusMessage = 'Invalid username or password';
+            });
+          } 
+          else 
+          {
+            setState(() 
+            {
+              _loginStatusMessage = 'Login failed: ${e.message}';
+            });
+          }
+        }
+      } 
+      else 
+      {
+        setState(() 
+        {
+          _loginStatusMessage = 'Invalid username or password';
+        });
+      }
+    } catch (e) {
+      setState(() 
+      {
+        _loginStatusMessage = 'Login failed: $e';
       });
     }
   }
@@ -100,8 +144,8 @@ class _LoginPageState extends State<LoginPage>
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  _statusMessage,
-                  style: TextStyle(color: _statusColor, fontSize: 16),
+                  _loginStatusMessage,
+                  style: TextStyle(color: Colors.red, fontSize: 16),
                 ),
               ),
               Padding(
@@ -112,7 +156,7 @@ class _LoginPageState extends State<LoginPage>
                     ElevatedButton(
                       onPressed: () 
                       {
-                        _testVerifyLogin();
+                        _verifyLogin();
                       },
                       child: Text('Login'),
                     ),
@@ -120,7 +164,7 @@ class _LoginPageState extends State<LoginPage>
                     ElevatedButton(
                       onPressed: () 
                       {
-                      Navigator.pushNamed(context, '/signup');
+                        Navigator.pushNamed(context, '/signup');
                       },
                       child: Text('Sign Up'),
                     ),
@@ -134,12 +178,22 @@ class _LoginPageState extends State<LoginPage>
                     value: !_showPassword,
                     onChanged: (bool? value) 
                     {
-                      setState(() {
+                      setState(() 
+                      {
                         _showPassword = !value!;
                       });
                     },
                   ),
-                  Text('Show Password'),
+                  GestureDetector(
+                    onTap:()
+                    {
+                      setState(() 
+                      {
+                        _showPassword = !_showPassword;
+                      });
+                    },
+                    child: Text('Show Password'),
+                  )
                 ],
               ),
             ],
