@@ -46,6 +46,12 @@ class SettingsPage extends StatelessWidget {
             },
           ),
           ListTile(
+            title: Text('View Restaurant Dump', style: TextStyle(color: Colors.green)),
+            onTap: () {
+              Navigator.pushNamed(context, '/restaurantDump');
+            },
+          ),
+          ListTile(
             title: Text('Logout'),
             onTap: () {
               Navigator.pushNamedAndRemoveUntil(

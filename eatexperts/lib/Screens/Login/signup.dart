@@ -2,9 +2,11 @@ import 'dart:core';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-// Firebase
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+import 'package:eatexperts/Screens/Startup/restaurantFinder.dart';
+
 
 
 class SignupPage extends StatefulWidget {
@@ -22,6 +24,9 @@ class _SignupPageState extends State<SignupPage>
   final TextEditingController _confirmPasswordController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   String signUpStatusMsg = " ";
+
+  // Initialize RestaurantFinder
+  restaurantFinder _restaurantFinder = restaurantFinder();
 
   // Confirm that username is valid
   bool isUsernameValid(String username)
@@ -144,8 +149,10 @@ class _SignupPageState extends State<SignupPage>
                 password: _passwordController.text,
               );
 
+              // Upon successful sign up
               print("User signed up: ${newUser.user?.uid}");
               storeUserWithEmail(newUser.user!, _usernameController.text);
+              _restaurantFinder.loadNearbyRestaurants(_usernameController.text);
               Navigator.pushReplacementNamed(context, '/preferences');
             }
             on FirebaseAuthException catch (e)

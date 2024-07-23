@@ -1,9 +1,13 @@
+// Flutter Imports
 import 'package:flutter/material.dart';
+
+// Screen Imports
 import 'package:eatexperts/Screens/Search/search.dart';
 import 'package:eatexperts/Screens/Cart/cart.dart';
 import 'package:eatexperts/Screens/Orders/orders.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatefulWidget 
+{
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -11,12 +15,19 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
+  
+
   static List<Widget> _widgetOptions = <Widget>[
     Text('Home Page'),
     SearchPage(),
     CartPage(),
     OrdersPage(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   void _onItemTapped(int index) {
     setState(() {
