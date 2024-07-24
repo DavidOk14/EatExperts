@@ -94,6 +94,9 @@ Future<List<dynamic>> getNearbyRestaurants(double latitude, double longitude) as
         print(formatted); // This prints the formatted restaurant name and diet
       }
 
+      if(_formattedRestaurants.length == 0)
+        _formattedRestaurants.add("No nearby restaurants found.");
+
     return _formattedRestaurants;
   }
 
