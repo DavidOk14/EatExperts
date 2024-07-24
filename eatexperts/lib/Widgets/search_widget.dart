@@ -19,18 +19,15 @@ class SearchWidget extends StatelessWidget {
                 offset: const Offset(0, 3.0),
                 color: Colors.grey[400]!,
                 blurRadius: 5,
-                spreadRadius: 1.5
-            )
-          ]
-      ),
+                spreadRadius: 1.5)
+          ]),
       child: TextFormField(
         onTap: onTap,
         controller: controller,
         decoration: const InputDecoration(
             prefixIcon: Icon(Icons.search),
             border: InputBorder.none,
-            hintText: "Search your favorite"
-        ),
+            hintText: "Search your favorite"),
       ),
     );
   }
