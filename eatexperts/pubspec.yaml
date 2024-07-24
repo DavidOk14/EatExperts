@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  provider: ^6.0.0
   flutter:
     sdk: flutter
   window_size:
@@ -89,8 +90,6 @@ flutter:
   assets:
 
     - assets/
-    
-
     - assets/EElogo.png 
     - assets/burger_ss.jpeg
     - assets/indian.jpeg

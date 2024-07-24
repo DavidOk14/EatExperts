@@ -1,27 +1,22 @@
-// Flutter Imports
+import 'package:eatexperts/Screens/Home/home_page.dart';
+import 'package:eatexperts/Screens/Profile/profile.dart';
 import 'package:flutter/material.dart';
-
-// Screen Imports
-import 'package:eatexperts/Screens/Search/search.dart';
 import 'package:eatexperts/Screens/Cart/cart.dart';
-import 'package:eatexperts/Screens/Orders/orders.dart';
-
-class HomePage extends StatefulWidget 
-{
+import 'package:eatexperts/Screens/Search/search.dart';
+class MainScreen extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _MainScreenState createState() => _MainScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
   
 
   static List<Widget> _widgetOptions = <Widget>[
-    Text('Home Page'),
-    SearchPage(),
+    HomePage(),
     CartPage(),
-    OrdersPage(),
+    ProfilePage(),
   ];
 
   @override
@@ -85,16 +80,12 @@ class _HomePageState extends State<HomePage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: 'Orders',
+            icon: Icon(Icons.account_circle),
+            label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,

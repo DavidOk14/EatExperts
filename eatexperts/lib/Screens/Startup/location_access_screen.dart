@@ -1,5 +1,4 @@
 import 'package:eatexperts/Screens/Login/login.dart';
-import 'package:eatexperts/Screens/Startup/authscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'dart:io';
@@ -61,7 +60,7 @@ class LocationAccessScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Image.asset(
-                      "assets/EE_location.png",
+                      "assets/location_user_marker.png",
                       height: 300,
                     ),
                     SizedBox(height: 32),
@@ -80,11 +79,11 @@ class LocationAccessScreen extends StatelessWidget {
                           padding: EdgeInsets.all(6),
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: Color.fromARGB(255, 154, 90, 203).withOpacity(0.15),
+                            color: Color.fromARGB(255, 5, 5, 5).withOpacity(0.15),
                           ),
                           child: Icon(
                             Icons.delivery_dining_outlined,
-                            color: Color.fromARGB(255, 154, 90, 203),
+                            color: Color.fromARGB(255, 5, 5, 5),
                             size: 30,
                           ),
                         ),
@@ -108,11 +107,11 @@ class LocationAccessScreen extends StatelessWidget {
                           padding: EdgeInsets.all(6),
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: Color.fromARGB(255, 154, 90, 203).withOpacity(0.15),
+                            color: Color.fromARGB(255, 2, 2, 2).withOpacity(0.15),
                           ),
                           child: Icon(
                             Icons.store_outlined,
-                            color: Color.fromARGB(255, 154, 90, 203),
+                            color: Color.fromARGB(255, 2, 2, 2),
                             size: 30,
                           ),
                         ),
@@ -141,7 +140,7 @@ class LocationAccessScreen extends StatelessWidget {
                     Navigator.push(context, MaterialPageRoute(builder:  (context) => LoginPage(),));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 154, 90, 203),
+                    backgroundColor: Color.fromARGB(255, 6, 6, 6),
                     padding: EdgeInsets.symmetric(vertical: 15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(24),
