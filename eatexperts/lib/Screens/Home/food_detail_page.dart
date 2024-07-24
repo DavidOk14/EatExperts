@@ -68,7 +68,7 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
               children: [
                 Icon(Icons.location_on,color: primaryColorED6E1B),
                 SizedBox(width: 10,),
-                Text("Deliver to New York 10001")
+                Text("Deliver to Denton Texas 76207")
               ],
             )
           ],

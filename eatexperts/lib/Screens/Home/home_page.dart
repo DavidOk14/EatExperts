@@ -1,5 +1,5 @@
 import 'package:eatexperts/Data/food_prime_data.dart';
-import 'package:eatexperts/Screens/Home/Home_Category/food_detail_page.dart';
+import 'package:eatexperts/Screens/Home/food_detail_page.dart';
 import 'package:eatexperts/Screens/Search/search.dart';
 import 'package:eatexperts/Widgets/search_widget.dart';
 import 'package:eatexperts/theme/style.dart';
