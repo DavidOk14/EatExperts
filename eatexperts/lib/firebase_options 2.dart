@@ -45,10 +45,9 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBuWubuVdsH8RNmKM2LcNejYlGlGXpjHZk',
-    appId: '1:139251597451:android:67a9e0434773dc0e54548e',
+    appId: '1:139251597451:android:cbd6c124b9be1ecc54548e',
     messagingSenderId: '139251597451',
     projectId: 'eatexperts-d4098',
-    databaseURL: 'https://eatexperts-d4098-default-rtdb.firebaseio.com',
     storageBucket: 'eatexperts-d4098.appspot.com',
   );
 
@@ -57,7 +56,6 @@ class DefaultFirebaseOptions {
     appId: '1:139251597451:ios:f7af7ac7c79b8bf654548e',
     messagingSenderId: '139251597451',
     projectId: 'eatexperts-d4098',
-    databaseURL: 'https://eatexperts-d4098-default-rtdb.firebaseio.com',
     storageBucket: 'eatexperts-d4098.appspot.com',
     iosBundleId: 'com.example.eatexperts',
   );
@@ -67,7 +65,6 @@ class DefaultFirebaseOptions {
     appId: '1:139251597451:ios:f7af7ac7c79b8bf654548e',
     messagingSenderId: '139251597451',
     projectId: 'eatexperts-d4098',
-    databaseURL: 'https://eatexperts-d4098-default-rtdb.firebaseio.com',
     storageBucket: 'eatexperts-d4098.appspot.com',
     iosBundleId: 'com.example.eatexperts',
   );
@@ -78,7 +75,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '139251597451',
     projectId: 'eatexperts-d4098',
     authDomain: 'eatexperts-d4098.firebaseapp.com',
-    databaseURL: 'https://eatexperts-d4098-default-rtdb.firebaseio.com',
     storageBucket: 'eatexperts-d4098.appspot.com',
     measurementId: 'G-FPSRF9DQHN',
   );

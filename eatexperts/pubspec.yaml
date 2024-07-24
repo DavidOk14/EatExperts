@@ -36,9 +36,10 @@ dependencies:
       url: https://github.com/google/flutter-desktop-embedding
       path: plugins/window_size
   geolocator: any
-  firebase_core: any
-  firebase_auth: any
+  firebase_core: ^2.3.0
+  firebase_auth: ^4.5.0
   cloud_firestore: any
+  http: any
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -87,14 +88,17 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-     - assets/ 
-     - assets/burger_ss.jpeg
-     - assets/indian.jpeg
-     - assets/desserts.jpeg
-     - assets/cc_burger.jpeg
-     - assets/butterchicken.jpeg
-     - assets/ccake.jpeg
-     
+
+    - assets/
+    - assets/EElogo.png 
+    - assets/burger_ss.jpeg
+    - assets/indian.jpeg
+    - assets/desserts.jpeg
+    - assets/cc_burger.jpeg
+    - assets/butterchicken.jpeg
+    - assets/ccake.jpeg
+
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

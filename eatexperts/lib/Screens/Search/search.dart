@@ -40,6 +40,13 @@ class _SearchPageState extends State<SearchPage> {
         .toList();
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+        onPressed: () 
+          {
+            Navigator.pushNamed(context, '/home');
+          }
+        ),
         elevation: 0,
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,

@@ -7,6 +7,7 @@ import 'package:eatexperts/Screens/Startup/SplashScreen.dart';
 import 'package:eatexperts/Screens/Preferences/preferences.dart';
 import 'package:eatexperts/Screens/Settings/settings.dart';
 import 'package:eatexperts/Screens/Settings/confirm_delete.dart';
+import 'package:eatexperts/Screens/Settings/restaurantDump.dart';
 import 'package:eatexperts/Screens/Settings/change_username.dart';
 import 'package:eatexperts/Screens/Settings/change_display_name.dart';
 import 'package:eatexperts/Screens/Settings/change_password.dart';
@@ -59,6 +60,7 @@ class EatExperts extends StatelessWidget {
         '/splashscreen': (context) => SplashScreen(),
         '/settings': (context) => SettingsPage(),
         '/confirmDelete': (context) => ConfirmDeletePage(),
+        '/restaurantDump': (context) => RestaurantDumpPage(),
         '/changeUsername': (context) => ChangeUsernamePage(),
         '/changeDisplayName': (context) => ChangeDisplayNamePage(),
         '/changePassword': (context) => ChangePasswordPage(),

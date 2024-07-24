@@ -1,30 +1,10 @@
 {
   "project_info": {
     "project_number": "139251597451",
-    "firebase_url": "https://eatexperts-d4098-default-rtdb.firebaseio.com",
     "project_id": "eatexperts-d4098",
     "storage_bucket": "eatexperts-d4098.appspot.com"
   },
   "client": [
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:139251597451:android:67a9e0434773dc0e54548e",
-        "android_client_info": {
-          "package_name": "com.eatexperts.eatexperts"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBuWubuVdsH8RNmKM2LcNejYlGlGXpjHZk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:139251597451:android:398a2f49b8f09b5554548e",

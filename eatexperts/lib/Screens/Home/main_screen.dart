@@ -2,7 +2,7 @@ import 'package:eatexperts/Screens/Home/home_page.dart';
 import 'package:eatexperts/Screens/Profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:eatexperts/Screens/Cart/cart.dart';
-
+import 'package:eatexperts/Screens/Search/search.dart';
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -11,11 +11,18 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
+  
+
   static List<Widget> _widgetOptions = <Widget>[
     HomePage(),
     CartPage(),
     ProfilePage(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   void _onItemTapped(int index) {
     setState(() {
