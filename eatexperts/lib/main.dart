@@ -3,7 +3,7 @@ import 'package:eatexperts/Screens/Login/signup.dart';
 import 'package:eatexperts/Screens/Login/login.dart';
 import 'package:eatexperts/Screens/Startup/SplashScreen.dart';
 import 'package:eatexperts/Screens/Preferences/preferences.dart';
-import 'package:eatexperts/Screens/Home/home.dart';
+import 'package:eatexperts/Screens/Home/main_screen.dart';
 import 'package:eatexperts/Screens/Settings/settings.dart';
 import 'package:eatexperts/Screens/Settings/confirm_delete.dart';
 
@@ -55,7 +55,7 @@ class EatExperts extends StatelessWidget
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignupPage(),
         '/preferences': (context) => PreferencesPage(),
-        '/home': (context) => HomePage(),
+        '/home': (context) => MainScreen(),
         '/splashscreen': (context) => SplashScreen(),
         '/settings': (context) => SettingsPage(),
         '/confirmDelete': (context) => ConfirmDeletePage(),

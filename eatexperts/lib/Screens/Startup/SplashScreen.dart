@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:eatexperts/Screens/Login/login.dart';
 import 'package:eatexperts/Screens/Startup/location_access_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
         body: Center(
       child: Image.asset(
         "assets/EatExperts Icon.png",
